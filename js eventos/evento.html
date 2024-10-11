@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="img/foto2.jpg" id="foto">
+
+    <script>
+        var foto1 = new Image();
+        foto1.src = "img/foto1.jpg";
+
+        var foto2 = new Image();
+        foto2.src = "img/foto2.jpg";
+
+        var foto = document.getElementById("foto");
+        foto.addEventListener('mouseover', () => {
+            foto.src = foto2.src
+
+        });
+
+        var foto = document.getElementById("foto");
+        foto.addEventListener('mouseout', () => {
+            foto.src = foto1.src
+
+        });
+    </script>
+    
+</body>
+</html>
