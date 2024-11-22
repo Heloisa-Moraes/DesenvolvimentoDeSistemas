@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #animar {
+            background-image: url('bailarinas.png'); 
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            width: 158px; /* Largura de um frame (horizontal) */
+            height: 199px; /* Altura de um frame (vertical) */
+        }
+    </style>
+</head>
+<body>
+    <div id="animar"></div>
+    <script>
+        var bailarina = {
+            init: function() {
+                bailarina.div = document.getElementById('animar');
+                bailarina.frameWidth = 158; 
+                bailarina.frameHeight = 199; 
+                bailarina.frames = 6; 
+                bailarina.offsetX = 0; 
+                bailarina.offsetY = 0; 
+                
+                bailarina.animar();
+            },
+            animar: function() {
+                bailarina.offsetX -= bailarina.frameWidth; 
+                if (bailarina.offsetX <= -bailarina.frameWidth * bailarina.frames) {
+                    bailarina.offsetX = 0; 
+                }
+                
+                bailarina.div.style.backgroundPosition = bailarina.offsetX + "px " + bailarina.offsetY + "px"; 
+
+                setTimeout(bailarina.animar, 300); 
+            }
+        };
+
+        bailarina.init(); 
+    </script>
+</body>
+</html>

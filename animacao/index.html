@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #animar{
+        background-image: url('monsterSpriteSheet.png');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        height: 100px;
+        width: 100px;
+        background-color:deeppink;
+    }
+</style>
+</head>
+<body>
+    <div id ="animar"></div>
+    <script src="core.js"></script>
+    <script>
+        var monstro = {
+            init: function() {
+                monstro.div=document.getElementById('animar');
+                monstro.frameWidth = 100;
+                monstro.frames= 3.8;
+                monstro.offsetX =0;
+
+                monstro.animar();
+
+            },
+            animar: function(){
+                monstro.offsetX -= monstro.frameWidth;
+                if(monstro.offsetX <= - monstro.frameWidth * monstro.frames){
+                    monstro.offsetX =0;
+
+                }
+
+                monstro.div.style.backgroundPosition = monstro.offsetX + "px";
+                setTimeout(monstro.animar,200);
+
+            }
+
+        };
+        Core.start(monstro);
+    </script>
+</body>
+</html>
